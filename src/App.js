@@ -162,11 +162,8 @@ ul {
   componentDidMount() {
     setInterval(this.handlePlus, 1000);
   }
-
- 
   render() {
-    const { person, show, count, mountTime } = this.state;
-
+    const { person, show, } = this.state;
     return (
       <div className="app-container">
         <h1>hello </h1>
@@ -174,21 +171,68 @@ ul {
           Profile
         </button>
         <div className='App'>
-          <h1>{count}</h1>
+          <h1>{this.state.count}</h1>
         </div>
         {show && (
           <div className="profile-container">
             <h2>{person.fullName}</h2>
             <p>{person.bio}</p>
             <img src={person.imgSrc} alt={person.fullName} className="profile-image" />
-            <p>Profession: {person.profession}</p>
+            <p>Profession: {person.profession}</p>    
+             <section className='section'>
+            <icon>
+              <FaGraduationCap />
+            </icon>
+            <content>          
+              <p >{this.state.person.education}</p>             
+            </content>
+          </section>
+            <sections className='sections' >
+              <icons>
+                <FaBriefcase />
+              </icons>
+              <contents>
+                <p >{this.state.person.experience}</p>
+
+                <h2>{this.state.person.experience[1]}</h2>
+                {
+                  this.state.person.experience[2].map(el => <p>{el}</p>)
+                }
+                <br />
+                <h2>{this.state.person.experience[3]}</h2>
+                {
+                  this.state.person.experience[4].map(el => <p>{el}</p>)
+                }
+              </contents>
+            </sections>                    
+                <sectionss className='sectionss'>
+                  <iconss>
+                    <FaCode />
+                  </iconss>
+                  <contentss>
+                    <h2>{this.state.person.Skills[0]}</h2>
+                    <ul>
+                    {
+                      this.state.person.Skills[1].map(el=><li>{el}</li>)
+                    }
+                    </ul>
+                  </contentss>
+                </sectionss>
+          </div>)}
           </div>
-        )}
-      </div>
     );
-  }
-}
+                  }
+                }
+         
+          
 
-export default App;
 
-        
+    
+  
+                  
+
+
+
+
+
+         export default App;
